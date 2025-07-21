@@ -16,7 +16,6 @@ const port = process.env.PORT;
 const __dirname = path.resolve();
 
 app.use(express.json())
-app.use(cookieParser());
 
 app.use(cors({
     origin: "http://localhost:5173",
@@ -26,6 +25,9 @@ app.use(cors({
 }))
 
 app.options("*", cors());
+
+app.use(cookieParser());
+
 
 app.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Origin', 'http://localhost:5173');
